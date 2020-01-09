@@ -111,7 +111,9 @@ class Obj {
 
 
 mocha.setup("bdd");
+
 const { assert } = chai;
+
 describe("Arrays", () => {
   it("Should implement indexOf", () => {
     const arr = new Obj(["a", "b", "c"]);

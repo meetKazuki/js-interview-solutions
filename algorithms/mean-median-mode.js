@@ -2,21 +2,26 @@ class Stats {
   constructor(array) {
     this.array = array;
   }
-  
+
   static round(value, round = 2) {
     return Math.round(value * Math.pow(10, round)) / Math.pow(10, round);
   }
-  
+
   mean() {
-    return this.array.reduce((sum, value) => sum + value, 0) / this.array.length;
+    return (
+      this.array.reduce((sum, value) => sum + value, 0) / this.array.length
+    );
   }
-  
+
   median() {
     const arraySorted = this.array.sort();
-    return arraySorted.length % 2 === 0 ? (arraySorted[arraySorted.length / 2 - 1] + arraySorted[arraySorted.length / 2]) / 2 :
-      arraySorted[Math.floor(arraySorted.length / 2)];
+    return arraySorted.length % 2 === 0
+      ? (arraySorted[arraySorted.length / 2 - 1] +
+          arraySorted[arraySorted.length / 2]) /
+          2
+      : arraySorted[Math.floor(arraySorted.length / 2)];
   }
-  
+
   mode() {
     const table = {};
     this.array.forEach(value => (table[value] = table[value] + 1 || 1));
@@ -36,6 +41,7 @@ class Stats {
 }
 
 mocha.setup("bdd");
+
 const { assert } = chai;
 const stat1 = new Stats([1, 2, 3, 4, 4, 5, 5]);
 const stat2 = new Stats([1, 1, 2, 2, 3, 3, 4, 4]);

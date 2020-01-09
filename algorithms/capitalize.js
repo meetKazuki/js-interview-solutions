@@ -1,4 +1,8 @@
-// Given a phrase, capitalize every word.
+/**
+ * @description Given a phrase, capitalize every word.
+ * 
+ * @param {string} phrase
+ */
 const capitalize = phrase => {
   const words = [];
   for (let word of phrase.split(" "))
@@ -14,7 +18,9 @@ const _capitalize = phrase => {
 };
 
 mocha.setup("bdd");
+
 const { assert } = chai;
+
 describe("Capitalization", () => {
   it("Should capitalize phrase", () => {
     assert.equal(capitalize("hello world"), "Hello World");

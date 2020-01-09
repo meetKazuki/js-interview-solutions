@@ -15,10 +15,14 @@ const _reverseArray = array => {
 };
 
 mocha.setup("bdd");
+
 const { assert } = chai;
-describe("Reverse Arrays", () => {
-  it("Should reverse arrays", () => {
-    assert.deepEqual(reverseArray([1, 2, 3, 4]), [4, 3, 2, 1]); assert.deepEqual(reverseArray([1, 2, 3, 4, 5]), [5, 4, 3, 2, 1]); assert.deepEqual(_reverseArray([1, 2, 3, 4, 5]), [5, 4, 3, 2, 1]);
+
+describe('Reverse Arrays', () => {
+  it('Should reverse arrays', () => {
+    assert.deepEqual(reverseArray([1, 2, 3, 4]), [4, 3, 2, 1]);
+    assert.deepEqual(reverseArray([1, 2, 3, 4, 5]), [5, 4, 3, 2, 1]);
+    assert.deepEqual(_reverseArray([1, 2, 3, 4, 5]), [5, 4, 3, 2, 1]);
   });
 });
 

@@ -1,12 +1,16 @@
 /**
- * Implement a function that returns the fibonacci number at a given index.
+ * @description Implement a function that returns the fibonacci number
+ * at a given index.
  */
-const fibonacci = element =>
-  // if (element < 0) throw new Error("Index cannot be negative");
-  element < 3 ? 1 : fibonacci(element - 1) + fibonacci(element - 2);
+const fibonacci = element => {
+  if (element < 0)
+    throw new Error("Index cannot be negative");
+  return element < 3 ? 1 : fibonacci(element - 1) + fibonacci(element - 2);
+};
 
 const _fibonacci = element => {
   const series = [1, 1];
+
   for (let i = 2; i < element; i++) {
     const a = series[i - 1];
     const b = series[i - 2];
@@ -15,8 +19,10 @@ const _fibonacci = element => {
   return series[element - 1];
 };
 
-mocha.setup("bdd"); 
+mocha.setup("bdd");
+
 const { assert } = chai;
+
 describe("Fibonacci", () => {
   it("Should implement fibonacci", () => {
     assert.equal(fibonacci(1), 1);
@@ -30,4 +36,5 @@ describe("Fibonacci", () => {
     assert.equal(_fibonacci(10), 55);
   });
 });
+
 mocha.run();

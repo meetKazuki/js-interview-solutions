@@ -8,6 +8,7 @@ class LinkedList {
   constructor() {
     this.head = null;
   }
+
   insertHead(data) {
     this.head = new Node(data, this.head);
   }
@@ -16,6 +17,7 @@ class LinkedList {
 function midpoint(list) {
   let moveByOne = list.head;
   let moveByTwo = list.head;
+
   while (moveByTwo.next && moveByTwo.next.next) {
     moveByOne = moveByOne.next; moveByTwo = moveByTwo.next.next;
   }
@@ -23,7 +25,9 @@ function midpoint(list) {
 }
 
 mocha.setup("bdd");
+
 const { assert } = chai;
+
 describe("Midpoint of Linked List", () => {
   it("Should return midpoint of linked list", () => {
     const chain = new LinkedList();
@@ -35,4 +39,5 @@ describe("Midpoint of Linked List", () => {
     assert.equal(midpoint(chain).data, 3);
   });
 });
+
 mocha.run();

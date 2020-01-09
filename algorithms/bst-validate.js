@@ -29,7 +29,9 @@ function validate(node, min = null, max = null) {
 }
 
 mocha.setup("bdd");
+
 const { assert } = chai;
+
 describe("Validate a Binary Search Tree", () => {
   it("Should validate a binary search tree", () => {
     const root = new Node(2);
@@ -39,4 +41,5 @@ describe("Validate a Binary Search Tree", () => {
     assert.equal(validate(root), true);
   });
 });
+
 mocha.run();

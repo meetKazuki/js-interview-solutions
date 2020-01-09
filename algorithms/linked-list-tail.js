@@ -1,5 +1,6 @@
 /**
- * Without keeping a counter, return the value in a linked list that is at a given step away from the end
+ * @description Without keeping a counter, return the value in a linked list
+ * that is at a given step away from the end
  */
 class Node {
   constructor(data, next = null) {
@@ -7,27 +8,35 @@ class Node {
     this.next = next;
   }
 }
+
 class LinkedList {
   constructor() {
     this.head = null;
   }
+
   insertHead(data) {
     this.head = new Node(data, this.head);
   }
 }
+
 function fromTail(list, step) {
-  let moveByOne = list.head; let aheadByStep = list.head;
+  let moveByOne = list.head;
+  let aheadByStep = list.head;
+
   while (step > 0) {
     aheadByStep = aheadByStep.next; step--;
   }
   while (aheadByStep.next) {
     moveByOne = moveByOne.next; aheadByStep = aheadByStep.next;
   }
+
   return moveByOne;
 }
 
 mocha.setup("bdd");
+
 const { assert } = chai;
+
 describe("From Tail of Linked List", () => {
   it("Should step from tail of linked list", () => {
     const chain = new LinkedList();
@@ -39,4 +48,5 @@ describe("From Tail of Linked List", () => {
     assert.equal(fromTail(chain, 2).data, 3);
   });
 });
+
 mocha.run();

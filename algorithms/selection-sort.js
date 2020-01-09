@@ -9,13 +9,18 @@ function selectionSort(array) {
       array[i] = less;
     }
   }
+
   return array;
 }
-mocha.setup("bdd");
+
+mocha.setup('bdd');
+
 const { assert } = chai;
-describe("Selection Sort", () => {
-  it("Should sort an array", () => {
+
+describe('Selection Sort', () => {
+  it('Should sort an array', () => {
     assert.deepEqual(selectionSort([5, 4, 3, 2, 1]), [1, 2, 3, 4, 5]);
   });
 });
+
 mocha.run();

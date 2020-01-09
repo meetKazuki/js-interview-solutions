@@ -1,5 +1,10 @@
-/* Given an array and a size, split the array items into a list of 
-arrays of the given size */
+/**
+ * @description Given an array and a size, split the array items
+ * into a list of arrays of the given size
+ *
+ * @param {array} array array to manipulate
+ * @param {number} size of array
+ */
 const chunk = (array, size) => {
   const chunks = [];
   for (let item of array) {
@@ -30,11 +35,20 @@ const __chunk = (array, size) => {
 };
 
 mocha.setup("bdd");
+
 const { assert } = chai;
-describe("Array Chunking", () => {
-  it("Should implement array chunking", () => {
-    assert.deepEqual(chunk([1, 2, 3, 4], 2), [[1, 2], [3, 4]]); assert.deepEqual(chunk([1, 2, 3, 4], 3), [[1, 2, 3], [4]]); assert.deepEqual(chunk([1, 2, 3, 4], 5), [[1, 2, 3, 4]]);
-    assert.deepEqual(_chunk([1, 2, 3, 4], 2), [[1, 2], [3, 4]]); assert.deepEqual(_chunk([1, 2, 3, 4], 3), [[1, 2, 3], [4]]); assert.deepEqual(_chunk([1, 2, 3, 4], 5), [[1, 2, 3, 4]]); assert.deepEqual(__chunk([1, 2, 3, 4], 2), [[1, 2], [3, 4]]); assert.deepEqual(__chunk([1, 2, 3, 4], 3), [[1, 2, 3], [4]]); assert.deepEqual(__chunk([1, 2, 3, 4], 5), [[1, 2, 3, 4]]);
+
+describe('Array Chunking', () => {
+  it('Should implement array chunking', () => {
+    assert.deepEqual(chunk([1, 2, 3, 4], 2), [[1, 2], [3, 4]]);
+    assert.deepEqual(chunk([1, 2, 3, 4], 3), [[1, 2, 3], [4]]);
+    assert.deepEqual(chunk([1, 2, 3, 4], 5), [[1, 2, 3, 4]]);
+    assert.deepEqual(_chunk([1, 2, 3, 4], 2), [[1, 2], [3, 4]]);
+    assert.deepEqual(_chunk([1, 2, 3, 4], 3), [[1, 2, 3], [4]]);
+    assert.deepEqual(_chunk([1, 2, 3, 4], 5), [[1, 2, 3, 4]]);
+    assert.deepEqual(__chunk([1, 2, 3, 4], 2), [[1, 2], [3, 4]]);
+    assert.deepEqual(__chunk([1, 2, 3, 4], 3), [[1, 2, 3], [4]]);
+    assert.deepEqual(__chunk([1, 2, 3, 4], 5), [[1, 2, 3, 4]]);
   });
 });
 

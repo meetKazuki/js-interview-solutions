@@ -33,10 +33,13 @@ class Queue {
     while (this.first.peek()) {
       this.second.push(this.first.pop());
     }
+
     const record = this.second.pop();
+
     while (this.second.peek()) {
       this.first.push(this.second.pop());
     }
+    
     return record;
   }
 
@@ -44,16 +47,21 @@ class Queue {
     while (this.first.peek()) {
       this.second.push(this.first.pop());
     }
+
     const record = this.second.peek();
+
     while (this.second.peek()) {
       this.first.push(this.second.pop());
     }
+
     return record;
   }
 }
 
 mocha.setup("bdd");
+
 const { assert } = chai;
+
 describe("Queue from Stacks", () => {
   it("Should implement queue using two stacks", () => {
     const queue = new Queue();
@@ -67,4 +75,5 @@ describe("Queue from Stacks", () => {
     assert.equal(queue.dequeue(), undefined);
   });
 });
+
 mocha.run();

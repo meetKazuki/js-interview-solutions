@@ -27,7 +27,9 @@ class Node {
 }
 
 mocha.setup("bdd");
+
 const { assert } = chai;
+
 describe("Binary Search Tree", () => {
   it("Should insert node", () => {
     const root = new Node(2);
@@ -36,6 +38,7 @@ describe("Binary Search Tree", () => {
     root.insert(0);
     assert.equal(root.left.left.data, 0);
   });
+
   it("Should implement search", () => {
     const root = new Node(2);
     root.insert(1);
@@ -45,4 +48,5 @@ describe("Binary Search Tree", () => {
     assert.equal(root.search(4), null);
   });
 });
+
 mocha.run();

@@ -7,9 +7,11 @@ class Node {
     this.children.push(new Node(data));
   }
 }
+
 function treeWidths(root) {
   const queue = [root, "reset"];
   const counters = [0];
+
   while (queue.length > 1) {
     const node = queue.shift();
     if (node === "reset") {
@@ -19,11 +21,14 @@ function treeWidths(root) {
       queue.push(...node.children); counters[counters.length - 1]++;
     }
   }
+  
   return counters;
 }
 
 mocha.setup("bdd");
+
 const { assert } = chai;
+
 describe("Width of Tree Levels", () => {
   it("Should return width of each tree level", () => {
     const root = new Node(1);
@@ -33,4 +38,5 @@ describe("Width of Tree Levels", () => {
     assert.deepEqual(treeWidths(root), [1, 2, 1]);
   });
 });
+
 mocha.run();

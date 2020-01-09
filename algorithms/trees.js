@@ -3,23 +3,28 @@ class Node {
     this.data = data;
     this.children = [];
   }
+
   add(data) {
     this.children.push(new Node(data));
   }
+
   remove(data) {
     this.children = this.children.filter(node => { return node.data !== data; });
   }
 }
+
 class Tree {
   constructor() {
     this.root = null;
   }
+
   traverseBF(fn) {
     const queue = [this.root];
     while (queue.length) {
       const node = queue.shift(); queue.push(...node.children); fn(node);
     }
   }
+
   traverseDF(fn) {
     const stack = [this.root];
     while (stack.length) {
@@ -31,7 +36,9 @@ class Tree {
 }
 
 mocha.setup("bdd");
+
 const { assert } = chai;
+
 describe("Trees", () => {
   it("Should add and remove nodes", () => {
     const root = new Node(1);
@@ -41,6 +48,7 @@ describe("Trees", () => {
     root.remove(2);
     assert.equal(root.children.length, 0);
   });
+
   it("Should traverse by breadth", () => {
     const tree = new Tree();
     tree.root = new Node(1);
@@ -51,6 +59,7 @@ describe("Trees", () => {
     tree.traverseBF(node => numbers.push(node.data));
     assert.deepEqual(numbers, [1, 2, 3, 4]);
   });
+
   it("Should traverse by depth", () => {
     const tree = new Tree();
     tree.root = new Node(1);
@@ -62,4 +71,5 @@ describe("Trees", () => {
     assert.deepEqual(numbers, [1, 2, 4, 3]);
   });
 });
+
 mocha.run();
